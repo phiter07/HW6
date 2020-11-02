@@ -1,4 +1,3 @@
-/*
 #include <iostream>
 #include <string>
 #include <iostream>
@@ -8,34 +7,33 @@
 using namespace std;
 
 
-// int main(){
-// //   Dlist<int> RPN; 
-// //   string input;
+ int main(){
+   Dlist<int> RPN; 
+   string input;
 
-// //   while(true){
-// //     cout << "Enter input" << endl;
+   while(true){
+     cout << "Enter input" << endl;
 
-// //     cin >> input;
+     cin >> input;
 
-// //     int num;
+     int num;
 
-// //     if(istringstream(input) >> num){
-// //       RPN.InsertFront(num);
-// //     }
-// //     else if(isOperator(input)){
-// //       performOp(input, RPN);
-// //     }
-// //     else if(input == "q"){
-// //       return 0;
-// //     }
-// //     else{
-// //       cout << "Invaild Operator" << endl;
-// //     }
-// //   }
-// // }
-// // std::cout << "::::::::::::::::RPN CALCULATOR:::::::::::::::::" << endl;
-// //     cout << "::TYPE IN A POSTFIX EXPRESSION OR 'q' TO QUIT::" << endl;
-// //     cout << ":::::::::::::::::::::::::::::::::::::::::::::::" << endl << endl;
-
-// }
+     if(istringstream(input) >> num){
+       RPN.InsertFront(num);
+     }
+    else if(isOperator(input)){
+       performOp(input, RPN);
+     }
+     else if(input == "q"){
+       return 0;
+     }
+     else{
+       cout << "Invaild Operator" << endl;
+     }
+   }
+ }
+ /*
+ std::cout << "::::::::::::::::RPN CALCULATOR:::::::::::::::::" << endl;
+     cout << "::TYPE IN A POSTFIX EXPRESSION OR 'q' TO QUIT::" << endl;
+     cout << ":::::::::::::::::::::::::::::::::::::::::::::::" << endl << endl;
 */
