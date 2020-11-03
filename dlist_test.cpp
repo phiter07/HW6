@@ -1,4 +1,4 @@
-/*
+
 #include <iostream>
 #include <string>
 #include "dlist.h"
@@ -14,19 +14,13 @@ struct Document {
 };
 
 int main() {
-
-  // cout << "inside of main" << endl;
-  // std::cout << "First";
-  Dlist<Document*> catsweb; //records are big, so store pointer
-  // Dlist<double> catsweb; 
+  Dlist<Document*> catsweb; 
   
   Document* a = new Document;
   a->name = "Kobe";
   a->uniqname = "mamba";
   a->job = FACULTY;
   catsweb.InsertBack( a );
-
-  // // do something with "catsweb"
 
   Document* b = new Document;
   b->name = "Carly";
@@ -57,20 +51,10 @@ int main() {
   f->uniqname = "offwall";
   catsweb.InsertFront( f );
 
-  //   catsweb.InsertBack(z);
-
-
-  //don't forget to delete objects on the heap
   while (!catsweb.IsEmpty() ) {
-    // std::cout << "Inside of while" << "\n";
-    Document *g = catsweb.RemoveBack(); // Getting Segmentation Fault HERE
-    //double l = catsweb.RemoveBack();
+    Document *g = catsweb.RemoveBack();
     cout << g->uniqname << endl;
     delete g;
-    //cout << l << endl;
   }
-
-
   return 0;
 }
-*/

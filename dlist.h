@@ -1,3 +1,140 @@
+/***
+* PSEUDOCODE
+template <typename T>
+Dlist<T>::Dlist() {
+  call MakeEmpty();
+}
+----------------------------------------------
+template <typename T>
+Dlist<T>::Dlist(const Dlist &l) {
+  call MakeEmpty();
+  call CopyAll(l)
+}
+----------------------------------------------
+template <typename T>
+bool Dlist<T>::IsEmpty() const {
+  return (first is equal to NULL AND last is eqal to NULL)
+}
+----------------------------------------------
+template<typename T>
+void Dlist<T>::InsertFront(const T &o) {
+  node *newNode is new node;
+  newNode access  o is o;
+
+  newNode access previous is nullptr;
+  newNode access next is nullptr;
+
+  if(first is equal to nullptr) {
+    last is newNode;
+    first is newNode;
+  }
+  else {
+    newNode access next is first;
+    first access previous is newNode;
+    first is newNode;
+  }
+}
+----------------------------------------------
+template <typename T>
+void Dlist<T>::InsertBack(const T &o) {
+  node pointer newNode is new Node;
+  newNode access next is nullptr;
+  newNode access previous is null ptr;
+  newNode access o is o;
+
+  if(last is equal to nullptr) {
+    first is newNode;
+    last is newNode;
+  }
+  else {
+    newNode access prev is last;
+    last access next is newNode;
+    last is newNode;
+  }
+}
+----------------------------------------------
+template<typename T>
+T Dlist<T>::RemoveFront() {
+  if(function call IsEmpty()) {
+    call function emptyList list;
+    throw list;
+  }
+
+  node pointer temp is first;
+  T data is temp access o;
+
+  if(first access next) {
+    first is first acess next;
+    first access previous is nullptr;
+    delete temp;
+  }
+  else {
+    call function RemoveAll();
+  }
+  return data;
+}
+----------------------------------------------
+template<typename T>
+T Dlist<T>::RemoveBack() {
+  if (function call IsEmpty) {
+    emptylist list;
+    throw list;
+  }
+  
+  node pointer temp is last;
+  T data is temp access o;
+
+  if(last access previous) {
+    last is last point previous
+    last access next is nullptr;
+    delete temp
+  }
+  else {
+    call RemoveAll function;
+  }
+  return data;
+}
+----------------------------------------------
+template <typename T>
+void Dlist<T>::MakeEmpty() {
+  first is nullptr;
+  last is nullptr;
+}
+----------------------------------------------
+template <typenameT>
+voidDlist<T>::RemoveAll() {
+  while(first) {
+    node pointer is first;
+    first is first access next;
+    delete temp;
+  }
+  call function MakeEmpty();
+}
+----------------------------------------------
+template <typename T>
+void Dlist<T>::CopyAll(const Dlist &l) {
+  node pointer temp is l.first;
+  while temp {
+    call function InsertBack(temp access o);
+    temp is temp access next;
+  }
+}
+----------------------------------------------
+template <typename T>
+Dlist<T>& Dlist<T>:: operater is (const Dlist &l) {
+  if (this is not equal to address l) {
+    call function RemoveAll();
+    call function CopyAll(l);
+  }
+  return pointer this;
+}
+----------------------------------------------
+template <typename T>
+Dlist<T>::~Dlist() {
+  call function Removeall();
+}
+***/
+
 #ifndef __DLIST_H__
 #define __DLIST_H__
 
@@ -76,11 +213,9 @@ class Dlist {
 /***************************************
  *ADD  Member function implementations here
  ***************************************/
- //Works Good
 template <typename T>
 Dlist<T>::Dlist(){
   MakeEmpty();
-  // std::cout << "Inside of Dlist()";
 } 
 
 template <typename T>
@@ -89,18 +224,14 @@ Dlist<T>::Dlist( const Dlist &l){
   CopyAll(l);
 } 
 
-//Works Good
+
 template <typename T>
 bool Dlist<T>::IsEmpty() const {
-
-  return (!first && !last);
-  
+  return (first == NULL && last == NULL);
 }
 
-//Works Good
 template <typename T>
 void Dlist<T>::InsertFront(const T &o){
-  
   node *newNode = new node;
   newNode->o = o;
 
@@ -111,20 +242,17 @@ void Dlist<T>::InsertFront(const T &o){
     // first = newNode;
     last = newNode;
     first = newNode;
-
-  }else{
+  }
+  else{
     newNode->next = first;
     first->prev = newNode; 
     first = newNode;
-
   }
 }
 
-//Works Good
+
 template <typename T>
 void Dlist<T>::InsertBack(const T &o){
-  // std::cout << "Inside of InsertBack()";
-
   node *newNode = new node;
   newNode->next = nullptr;
   newNode->prev = nullptr;
@@ -138,15 +266,13 @@ void Dlist<T>::InsertBack(const T &o){
     last->next = newNode;
     last = newNode;
   }
-
 }
 
 template <typename T>
 T Dlist<T>::RemoveFront(){
- 
   if(IsEmpty()){
-    emptyList e;
-    throw e;
+    emptyList list;
+    throw list;
   }
 
   node* temp = first;
@@ -160,15 +286,14 @@ T Dlist<T>::RemoveFront(){
     RemoveAll();
   }
     return data;
-
 }
 
 template <typename T>
 T Dlist<T>::RemoveBack(){
 
   if(IsEmpty()){
-    emptyList e;
-    throw e;
+    emptyList list;
+    throw list;
   }
 
   node* temp = last;
@@ -184,17 +309,14 @@ T Dlist<T>::RemoveBack(){
     return data;
 }
 
-//Works Good
 template <typename T>
 void Dlist<T>::MakeEmpty(){
-  // std::cout << "Inside of MakeEmpty()";
   first = nullptr;
   last = nullptr;
 }
 
 template <typename T>
 void Dlist<T>::RemoveAll(){
-
   while(first){
     node *temp = first;
     first = first->next;
@@ -205,14 +327,11 @@ void Dlist<T>::RemoveAll(){
 
 template <typename T>
 void Dlist<T>::CopyAll(const Dlist &l){
-  
       node* temp = l.first;
       while (temp) {
         InsertBack(temp->o);
         temp = temp->next;
     }
-
-
 }
 
 template <typename T>
@@ -224,11 +343,9 @@ Dlist<T>& Dlist<T>::operator=(const Dlist &l){
   return *this;                
 }   
 
-//destructor
 template <typename T>
 Dlist<T>::~Dlist(){
   RemoveAll();
-  //MakeEmpty();
 }
 
 /* this must be at the end of the file */
